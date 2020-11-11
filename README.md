@@ -2,7 +2,7 @@
 
 Custom User Model, Authentication, Templates, Email as username
 
-<p>ATENÇÂO: Define 'Custom User model' in 'settings.py' file.</p>
+<p>ATTENTION: Define 'Custom User model' in 'settings.py' file.</p>
 <pre>AUTH_USER_MODEL = 'accounts.CustomUser'</pre>
 <p>And in 'settings.py' to, the app where is the custom user model, must be before 'django.contrib.admin',</p>
 <pre>
