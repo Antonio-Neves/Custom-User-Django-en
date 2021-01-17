@@ -148,6 +148,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # ----------------------------------------------------------
 # --- Login Lougout User --- #
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 

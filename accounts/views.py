@@ -1,13 +1,19 @@
+from django.shortcuts import redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from accounts.forms import CustomUserCreateForm, CustomUserChangeForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from accounts.models import CustomUser
 from django.contrib.auth.views import (
+	LoginView,
 	PasswordChangeView,
 	PasswordResetView,
 	PasswordResetConfirmView,
 	PasswordResetCompleteView,
 	)
+
+
+class UserLogin(SuccessMessageMixin, LoginView):
+	template_name = 'accounts/login.html'
 
 
 class UserCreate(SuccessMessageMixin, CreateView):
@@ -60,9 +66,14 @@ class PasswordReset(SuccessMessageMixin, PasswordResetView):
 
 class PasswordResetConfirm(SuccessMessageMixin, PasswordResetConfirmView):
 	success_message = 'Your password has been reset correctly. Log in to start'
-	# success_url = '/accounts/login'
 
 
 class PasswordResetComplete(SuccessMessageMixin, PasswordResetCompleteView):
-	template_name = 'registration/login.html'
+	template_name = 'accounts/password-reset-complete.html'
 	success_message = 'Your password has been reset correctly. Log in to start'
+
+	# For use with a html template, don't subscrive the 'get' method
+	# and use the template 'template_name = '
+	def get(self, request, *args, **kwargs):
+
+		return redirect('login')
