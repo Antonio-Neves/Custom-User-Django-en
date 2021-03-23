@@ -1,13 +1,8 @@
 {% extends 'base/_base_index.html' %}
-
 {% block title %}Home{% endblock %}
-
 {% block body_title %}Home{% endblock %}
-
 {% block body_content %}
-
     <div class="container back01">
-
         {% if user.is_anonymous %}
             {% include 'base/_notice_login.html' %}
         {% else %}
@@ -16,9 +11,6 @@
             <a class="btn btn-primary shadow-lg mr-1" role="button" href="{% url 'user-change' user.pk %}">Change Profile</a>
             <a class="btn btn-primary shadow-lg mr-1" role="button" href="{% url 'password-change' %}">Change Password</a>
             <a class="btn btn-primary shadow-lg mr-1" role="button" href="{% url 'user-delete' user.pk %}">Delete Profile</a>
-
         {% endif %}
-
     </div>
-
 {% endblock %}
