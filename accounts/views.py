@@ -1,4 +1,5 @@
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from accounts.forms import CustomUserCreateForm, CustomUserChangeForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -20,7 +21,7 @@ class UserCreate(SuccessMessageMixin, CreateView):
 	model = CustomUser
 	form_class = CustomUserCreateForm
 	template_name = 'accounts/user-new.html'
-	success_url = '/accounts/login'
+	success_url = reverse_lazy('login')
 	success_message = 'Welcome! Log in to start'
 
 
@@ -28,7 +29,7 @@ class UserChange(SuccessMessageMixin, UpdateView):
 	model = CustomUser
 	form_class = CustomUserChangeForm
 	template_name = 'accounts/user-change.html'
-	success_url = '/'
+	success_url = reverse_lazy('index')
 	success_message = 'Your profile change was successful'
 
 	def get_queryset(self):
@@ -42,7 +43,7 @@ class UserChange(SuccessMessageMixin, UpdateView):
 
 class UserDelete(SuccessMessageMixin, DeleteView):
 	model = CustomUser
-	success_url = '/'
+	success_url = reverse_lazy('index')
 	template_name = 'accounts/user-delete.html'
 
 	def get_queryset(self):
@@ -56,7 +57,7 @@ class UserDelete(SuccessMessageMixin, DeleteView):
 
 class PasswordChange(SuccessMessageMixin, PasswordChangeView):
 	template_name = 'accounts/password-change.html'
-	success_url = '/'
+	success_url = reverse_lazy('index')
 	success_message = 'Your password change was successful'
 
 
