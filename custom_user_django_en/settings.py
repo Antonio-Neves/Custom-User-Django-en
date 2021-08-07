@@ -115,24 +115,24 @@ WSGI_APPLICATION = 'custom_user_django_en.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # --- Development SQLite3 --- #
-# DATABASES = {
-# 	'default': {
-# 		'ENGINE': 'django.db.backends.sqlite3',
-# 		'NAME': BASE_DIR / 'db.sqlite3',
-# 	}
-# }
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': BASE_DIR / 'db.sqlite3',
+	}
+}
 
 # --- PostgreSQL --- #
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME_DB'),
-        'USER': config('USER_DB'),
-        'PASSWORD': config('PASSWORD_DB'),
-        'HOST': config('HOST_DB'),
-        'PORT': config('PORT_DB'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('NAME_DB'),
+#         'USER': config('USER_DB'),
+#         'PASSWORD': config('PASSWORD_DB'),
+#         'HOST': config('HOST_DB'),
+#         'PORT': config('PORT_DB'),
+#     }
+# }
 
 
 # ----------------------------------------------------------
